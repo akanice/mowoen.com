@@ -34,9 +34,15 @@
 						<div class="content">
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Tên</label>
-                                <div class="col-sm-10">
+                                <div class="col-sm-4">
                                     <input type="text" class="form-control" name="title" value="<?=@$productcategory->title?>" required="" />
                                 </div>
+								<div class="col-sm-4">
+									<select class="form-control" name="type">
+										<option value="bath" <?php if($products->type=='bath'){echo 'selected="selected" ';}?>>Nhà tắm</option>
+										<option value="kitchen" <?php if($products->type=='kitchen'){echo 'selected="selected" ';}?>>Nhà bếp</option>
+									</select>
+								</div>
                             </div>
 							<div class="form-group">
                                 <label class="col-sm-2 control-label">Danh mục cha</label>

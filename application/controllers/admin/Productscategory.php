@@ -92,6 +92,7 @@ class ProductsCategory extends MY_Controller{
                 "thumb" => @$thumb,
 				"custom_field" => @$packages,
                 "banner" => $this->input->post("banner"),
+                "type" => $this->input->post("type"),
                 "meta_title" => $this->input->post("meta_title"),
                 "meta_description" => $this->input->post("meta_description"),
                 "meta_keyword" => $this->input->post("meta_keyword"),
@@ -155,13 +156,14 @@ class ProductsCategory extends MY_Controller{
 			$packages = json_encode($packages);
 			
             $data = array(
-                "title" 					=> $this->input->post("title"),
+                "title" 						=> $this->input->post("title"),
                 "parent_id" 			=> $this->input->post("parent"),
                 "alias" 					=> make_alias($this->input->post("title")),
-                "image" 				=> $image,
-                "thumb" 				=> $image_thumb,
-				"custom_field" 	=> @$packages,
-				"banner" => $this->input->post("banner"),
+                "image" 					=> $image,
+                "thumb" 					=> $image_thumb,
+				"custom_field" 		=> @$packages,
+				"banner"				=> $this->input->post("banner"),
+				"type" 					=> $this->input->post("type"),
                 "meta_title" 			=> $this->input->post("meta_title"),
                 "meta_description"		=> $this->input->post("meta_description"),
                 "meta_keyword" 			=> $this->input->post("meta_keyword"),

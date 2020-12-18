@@ -17,7 +17,7 @@
 							<li class="breadcrumbs__home-link">
 								Home<i class="fa fa-angle-right"></i>
 							</li>
-							<li class="active breadcrumbs__breadcrumb">Taps for bathrooms, showers and kitchens</li>
+							<?=@$breadcrumb;?>
 						</ol>
 					</nav>
 				</div>

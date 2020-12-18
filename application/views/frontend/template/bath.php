@@ -1,3 +1,4 @@
+	<div class="main">	
 		<section id="sub-home-page-stage" class="yCmsContentSlot">
 			<div class="stage stage--reduced">
 				<figure>
@@ -175,3 +176,4 @@
 				</div>
 			</div>
 		</section>
+	</div>

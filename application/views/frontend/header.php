@@ -11,7 +11,8 @@
 		<div class="header-main">
 			<div class="container">
 				<div class="header-main-wrapper">
-					<div class="logo-wrapper"> <strong class="logo"> <img class="sticky-logo" src="/assets/img/mowoen-logo.png" alt=""> <img class="default-logo" src="/assets/img/mowoen-logo.png" alt=""> </strong></div>
+					<div class="logo-wrapper"> <strong class="logo"> 
+						<a href="<?=base_url('')?>"><img class="sticky-logo" src="/assets/img/mowoen-logo.png" alt=""> <img class="default-logo" src="/assets/img/mowoen-logo.png" alt=""> </a></strong></div>
 					<div class="header-right">
 						<div class="menu-wrapper"> <span data-action="toggle-nav" class="action nav-toggle"><span></span></span>
 							<div class="sections nav-sections">
@@ -22,62 +23,62 @@
 									<div class="section-item-content nav-sections-item-content" id="store.menu" data-role="content" role="tabpanel" aria-hidden="false">
 										<nav class="navigation skynetch-megamenu" role="navigation">
 											<ul>
-												<li class="ui-menu-item level0 fullwidth parent staticwidth mobile-show" id="nav_menu_home">
-													<div class="open-children-toggle"></div> <a href="#" class="level-top"><span>Home</span></a>
-													<div class="level0 submenu">
-														<div class="container">
-															<div class="menu-top-block">
-																<div class="demos-wapper demos">
-																	<div class="row" style="margin: 0 -15px;">
-																		<div class="col-sm-6 col-lg-3" style="padding: 0 15px;">
-																			<div class="boutique-demolink">
-																				<div class="image"> <a class="link" href="#"> <img src="/assets/img/kitchen-mixer_aquno-select-M81_key-visual_16x9.jpg" class="img-holder" alt=""> </a></div>
-																				<h5 class="title">Home 01</h5>
-																			</div>
-																		</div>
-																		<div class="col-sm-6 col-lg-3" style="padding: 0 15px;">
-																			<div class="boutique-demolink">
-																				<div class="image"> <a class="link" href="#"> <img src="/assets/img/kitchen-mixer_aquno-select-M81_key-visual_16x9.jpg" class="img-holder" alt=""> </a></div>
-																				<h5 class="title">Home 02</h5>
-																			</div>
-																		</div>
-																		<div class="col-sm-6 col-lg-3" style="padding: 0 15px;">
-																			<div class="boutique-demolink">
-																				<div class="image"> <a class="link" href="#"> <img src="/assets/img/kitchen-mixer_aquno-select-M81_key-visual_16x9.jpg" class="img-holder" alt=""> </a></div>
-																				<h5 class="title">Home 03</h5>
-																			</div>
-																		</div>
-																		<div class="col-sm-6 col-lg-3" style="padding: 0 15px;">
-																			<div class="boutique-demolink">
-																				<div class="image"> <a class="link" href="#"> <img src="/assets/img/kitchen-mixer_aquno-select-M81_key-visual_16x9.jpg" class="img-holder" alt=""> </a></div>
-																				<h5 class="title">Home 04</h5>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="text-center"><a href="#" class="button demo-click">Our Products</a></div>
-																</div>
-															</div>
-														</div>
-													</div>
-												</li>
 												<li class="ui-menu-item level0 fullwidth staticwidth parent" id="nav_menu_shop">
-													<div class="open-children-toggle"></div> <a href="#" class="level-top"><span>Shop</span></a>
+													<div class="open-children-toggle"></div> <a href="<?=base_url('bath')?>" class="level-top"><span>Nhà tắm</span></a>
 													<div class="level0 submenu" style="">
 														<div class="container">
 															<div class="row">
 																<ul class="subchildmenu col-sm-12 mega-columns columns4">
 																	<li class="ui-menu-item level1 parent">
-																		<div class="open-children-toggle"></div> <a href="#"><span>Layout</span></a>
+																		<div class="open-children-toggle"></div> <a href="<?=base_url('bath/products')?>"><span>Sản phẩm</span></a>
 																		<ul class="subchildmenu">
-																			<li class="ui-menu-item level2"><a href="#"><span>Grid - 2 Columns</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Grid - 3 Columns</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Grid - 4 Columns</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Grid - 5 Columns</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Grid - 6 Columns</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span></span></a></li>
+																			<li class="ui-menu-item level2"><a href="<?=base_url('bath/products?cat_id=1')?>"><span>Vòi sen</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Van nóng lạnh</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Phụ kiện</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Bồn chậu</span></a></li>
 																		</ul>
 																	</li>
 																	<li class="ui-menu-item level1 parent">
-																		<div class="open-children-toggle"></div> <a href="#"><span>Pagination</span></a>
+																		<div class="open-children-toggle"></div> <a href="<?=base_url('bath/inspiration')?>"><span>Cảm hứng</span></a>
+																		<ul class="subchildmenu">
+																			<li class="ui-menu-item level2"><a href="#"><span>Xu hướng 2020</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Phong cách</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Nhà tắm trong mơ</span></a></li>
+																		</ul>
+																	</li>
+																	<li class="ui-menu-item level1 parent">
+																		<div class="open-children-toggle"></div> <a href="<?=base_url('bath/guide')?>"><span>Hướng dẫn sử dụng</span></a>
+																		<ul class="subchildmenu">
+																			<li class="ui-menu-item level2"><a href="#"><span>Bài trí nhà tắm</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Lắp đặt thiết bị</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Vệ sinh bảo dưỡng</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Công nghệ</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Lựa chọn thiết bị</span></a></li>
+																		</ul>
+																	</li>
+																	<li class="ui-menu-item level1 parent">
+																		<div class="open-children-toggle"></div> <a href="#"><span>Banner</span></a>
+																		<ul class="subchildmenu">
+																			<li class="ui-menu-item level2"><a href="#"><span>Rev Banner</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Normal Banner</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>Full Site Banner</span></a></li>
+																			<li class="ui-menu-item level2"><a href="#"><span>No Banner</span></a></li>
+																		</ul>
+																	</li>
+																</ul>
+															</div>
+														</div>
+													</div>
+												</li>
+												<li class="ui-menu-item level0 fullwidth staticwidth parent" id="nav_menu_product">
+													<div class="open-children-toggle"></div> <a href="<?=base_url('kitchen')?>" class="level-top"><span>Bếp</span></a>
+													<div class="level0 submenu" style="">
+														<div class="container">
+															<div class="row">
+																<ul class="subchildmenu col-sm-12 mega-columns columns3">
+																	<li class="ui-menu-item level1 parent">
+																		<div class="open-children-toggle"></div> <a href="#"><span>Cảm hứng</span></a>
 																		<ul class="subchildmenu">
 																			<li class="ui-menu-item level2"><a href="#"><span>Pagination</span></a></li>
 																			<li class="ui-menu-item level2"><a href="#"><span>Load More</span></a></li>
@@ -85,7 +86,7 @@
 																		</ul>
 																	</li>
 																	<li class="ui-menu-item level1 parent">
-																		<div class="open-children-toggle"></div> <a href="#"><span>Hover Item</span></a>
+																		<div class="open-children-toggle"></div> <a href="#"><span>Hướng dẫn sử dụng</span></a>
 																		<ul class="subchildmenu">
 																			<li class="ui-menu-item level2"><a href="#"><span>Gallery Image</span></a></li>
 																			<li class="ui-menu-item level2"><a href="#"><span>Hover Image</span></a></li>
@@ -101,84 +102,33 @@
 																			<li class="ui-menu-item level2"><a href="#"><span>No Banner</span></a></li>
 																		</ul>
 																	</li>
-																	<li class="ui-menu-item level1 parent" style="clear: none;">
-																		<div class="open-children-toggle"></div> <a href="#"><span>Sidebar</span></a>
-																		<ul class="subchildmenu">
-																			<li class="ui-menu-item level2"><a href="#"><span>Left Sidebar</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Right Sidebar</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>No Sidebar</span></a></li>
-																		</ul>
-																	</li>
-																	<li class="ui-menu-item level1 parent">
-																		<div class="open-children-toggle"></div> <a href="#"><span>Label Item</span></a>
-																		<ul class="subchildmenu">
-																			<li class="ui-menu-item level2"><a href="#"><span>Square</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Square Color</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Circle</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Vertical</span></a></li>
-																		</ul>
-																	</li>
-																</ul>
-															</div>
-														</div>
-													</div>
-												</li>
-												<li class="ui-menu-item level0 fullwidth staticwidth parent" id="nav_menu_product">
-													<div class="open-children-toggle"></div> <a href="#" class="level-top"><span>Product</span></a>
-													<div class="level0 submenu" style="">
-														<div class="container">
-															<div class="row">
-																<ul class="subchildmenu col-sm-12 mega-columns columns3">
-																	<li class="ui-menu-item level1 parent">
-																		<div class="open-children-toggle"></div> <a href="#"><span>Layout</span></a>
-																		<ul class="subchildmenu">
-																			<li class="ui-menu-item level2"><a href="#"><span>Horizontal</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Horizontal</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Horizontal</span></a></li>
-																		</ul>
-																	</li>
-																	<li class="ui-menu-item level1 parent">
-																		<div class="open-children-toggle"></div> <a href="#"><span>Type</span></a>
-																		<ul class="subchildmenu">
-																			<li class="ui-menu-item level2"><a href="#"><span>Simple</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Simple</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Simple</span></a></li>
-																		</ul>
-																	</li>
-																	<li class="ui-menu-item level1 parent">
-																		<div class="open-children-toggle"></div> <a href="#"><span>Sidebar</span></a>
-																		<ul class="subchildmenu">
-																			<li class="ui-menu-item level2"><a href="#"><span>Left Sidebar</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>Right Sidebar</span></a></li>
-																			<li class="ui-menu-item level2"><a href="#"><span>No Sidebar</span></a></li>
-																		</ul>
-																	</li>
 																</ul>
 															</div>
 														</div>
 													</div>
 												</li>
 												<li class="ui-menu-item level0 classic parent">
-													<div class="open-children-toggle"></div> <a href="#" class="level-top"><span>Pages</span></a>
-													<div class="level0 submenu" style="">
+													<div class="open-children-toggle"></div> <a href="#" class="level-top"><span>Dịch vụ</span></a>
+													<div class="level0 submenu">
 														<div class="row">
 															<ul class="subchildmenu">
-																<li class="ui-menu-item level1"><a href="#"><span>About Us</span></a></li>
+																<li class="ui-menu-item level1"><a href="#"><span>Giặt khô là hơi</span></a></li>
+																<li class="ui-menu-item level1"><a href="#"><span>Lắp đặt tận nhà</span></a></li>
 															</ul>
 														</div>
 													</div>
 												</li>
 												<li class="ui-menu-item level0 classic parent">
-													<div class="open-children-toggle"></div> <a href="#" class="level-top"><span>Features</span></a>
-													<div class="level0 submenu" style="left: -9999px; right: auto;">
+													<div class="open-children-toggle"></div> <a href="#" class="level-top"><span>Về Mowoen</span></a>
+													<div class="level0 submenu">
 														<div class="row">
 															<ul class="subchildmenu">
-																<li class="ui-menu-item level1"><a href="#"><span>Header Types</span></a></li>
+																<li class="ui-menu-item level1"><a href="#"><span>Giới thiệu</span></a></li>
 															</ul>
 														</div>
 													</div>
 												</li>
-												<li class="ui-menu-item level0"> <a href="#" class="level-top" target="_blank"><span>Purchase</span></a></li>
+												<!--<li class="ui-menu-item level0"> <a href="#" class="level-top" target="_blank"><span>Purchase</span></a></li>-->
 											</ul>
 										</nav>
 									</div>

@@ -34,9 +34,16 @@
 						<div class="widget-body content">                        
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Tên</label>
-								<div class="col-sm-10">
+								<div class="col-sm-4">
 									<input type="text" class="form-control" name="title" required="" />
 								</div>
+								<label class="col-sm-2 control-label">Loại</label>
+								<div class="col-sm-4">
+                                    <select class="form-control" name="type">
+                                        <option value="bath" selected>Nhà tắm</option>
+                                        <option value="kitchen">Nhà Bếp</option>
+                                    </select>
+                                </div>
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Danh mục cha</label>

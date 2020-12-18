@@ -155,7 +155,7 @@ class MY_Model extends CI_Model {
 		$this->load->library('pagination');
         $config['base_url'] = base_url($base_url);
         $config['suffix'] = $suffix;
-		// print_r($uri_segment);die();
+		// print_r($base_url);die();
         $config['total_rows'] = $total;
         $config['uri_segment'] = $uri_segment;
         $config['per_page'] = $per_page;

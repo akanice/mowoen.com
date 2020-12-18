@@ -1,4 +1,5 @@
-$(window).scroll(function() {
+$(window).scroll(function() {	
+	// Sticky header
 	var windowWidth = window.innerWidth || $(window).width();
 	header_one = $("header.page-header");
 	if (windowWidth >= 992) {
@@ -44,7 +45,19 @@ if (stickyHide == 1) {
 }
 	
 $(document).ready(function () {	
-	// sticky header
+	//smooth scroll to anchor
+	$(".scroll").click(function(event){
+		event.preventDefault();
+		//calculate destination place
+		var dest=0;
+		if($(this.hash).offset().top > $(document).height()-$(window).height()){
+			dest=$(document).height()-$(window).height()-100;
+		}else{
+			dest=$(this.hash).offset().top-100;
+		}
+	//go to destination
+	$('html,body').animate({scrollTop:dest}, 1000,'swing');
+	});
 	
 	$(".navigation.skynetch-megamenu li.classic .submenu, .navigation.skynetch-megamenu li.staticwidth .submenu, .navigation.skynetch-megamenu li.classic .subchildmenu .subchildmenu").each(function() {
 		$(this).css("left", "-9999px");

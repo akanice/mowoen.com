@@ -50,6 +50,11 @@ class ProductsCategoryModel extends MY_Model {
             'nullable'  => true,
             'type'      => 'string'
         ),
+		'type' => array(
+            'isIndex'   => false,
+            'nullable'  => true,
+            'type'      => 'string'
+        ),
         'meta_title' => array(
             'isIndex'   => false,
             'nullable'  => true,

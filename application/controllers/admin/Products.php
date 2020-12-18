@@ -26,7 +26,7 @@ class Products extends MY_Controller{
         $this->data['productcategory']    = $this->productscategorymodel->read();
 		$this->data['name'] = $this->input->get('name');
 		$this->data['category'] = $this->input->get('category');
-        $total = count($this->productsmodel->getProductsByCategoryId($this->input->get('name'),'','','','',''));
+        @$total = count($this->productsmodel->getProductsByCategoryId($this->input->get('name'),'','','','',''));
 		
         //Pagination
 		$config['suffix'] = '';
@@ -103,12 +103,10 @@ class Products extends MY_Controller{
 				"made_in" 					=> $this->input->post("made_in"),
 				"guarantee" 					=> $this->input->post("guarantee"),
 				"extra_des" 					=> $this->input->post("extra_des"),
-				"brand" 							=> $this->input->post("brand"),
 				"price"							=> $this->input->post("price"),
 				"sale_price" 					=> $this->input->post("sale_price"),
-				"listed_price" 				=> $this->input->post("listed_price"),
 				"featured" 						=> $this->input->post("featured"),
-				"type" 							=> 'product',
+				"type" 							=> $this->input->post("type"),
 				"meta_title" 					=> $this->input->post("meta_title"),
 				"meta_description" 		=> $this->input->post("meta_description"),
 				"meta_keywords" 		=> $this->input->post("meta_keywords"),
@@ -194,10 +192,8 @@ class Products extends MY_Controller{
 				"made_in" 					=> $this->input->post("made_in"),
 				"guarantee" 					=> $this->input->post("guarantee"),
 				"extra_des" 					=> $this->input->post("extra_des"),
-				"brand" 							=> $this->input->post("brand"),
 				"price"							=> $this->input->post("price"),
 				"sale_price" 					=> $this->input->post("sale_price"),
-				"listed_price" 				=> $this->input->post("listed_price"),
 				"featured" 						=> $this->input->post("featured"),
 				"type" 							=> $this->input->post("type"),
 				"meta_title" 					=> $this->input->post("meta_title"),
@@ -283,10 +279,8 @@ class Products extends MY_Controller{
 				"made_in" 					=> $this->input->post("made_in"),
 				"guarantee" 					=> $this->input->post("guarantee"),
 				"extra_des" 					=> $this->input->post("extra_des"),
-				"brand" 							=> $this->input->post("brand"),
 				"price"							=> $this->input->post("price"),
 				"sale_price" 					=> $this->input->post("sale_price"),
-				"listed_price" 				=> $this->input->post("listed_price"),
 				"featured" 						=> $this->input->post("featured"),
 				"type" 							=> $this->input->post("type"),
 				"meta_title" 					=> $this->input->post("meta_title"),

@@ -47,18 +47,6 @@ class Home extends MY_Controller {
 		// Load featured/newest products
 		$this->data['mostviewed'] = $this->productsmodel->read(array('featured'=>1,'type'=>'product'),array('id'=>false),false,12);
 		
-		//Load products by category
-		$cat_available = $configs['cat_available'] = $this->configsmodel->read(array('name' => 'cat_available'), array(), true)->value;
-		$cat_available = json_decode($cat_available);
-		foreach ($cat_available as $k=>$c) {
-			$this->data['cat_info'][$k] = $this->productscategorymodel->read(array('id' => $c), array(), true);
-			$this->data['cat_info'][$k]->brand = $this->productsmodel->ElementFilterBrand($c);
-			// print_r($this->data['cat_info']);
-		}
-
-		// Load partner brand
-		$this->data['brands'] = $this->brandsmodel->read(array(),array(),false);
-		
 		// Load Featured Article from news
 		$feature_article_id = $this->configsmodel->read(array(
 				'term' => 'home',

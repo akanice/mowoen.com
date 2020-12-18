@@ -105,13 +105,11 @@ $route['bath/(:any)/(:any)']								=	"products/get_post_data/$1/$2";
 
 // Kitchen route
 $route['kitchen']												=	"products/index";
+$route['kitchen/(:any)']										=	"products/get_post_type/$1";
+$route['kitchen/(:any)/(:num)']							=	"products/get_post_type/$1/$2";
+$route['kitchen/(:any)/(:any)']							=	"products/get_post_data/$1/$2";
 
-$route['combo/tao-combo']								=	"products/combo_add";
-$route['combo/(:num)']										=	"products/combo_list/$1";
-$route['combo/(:any)']										=	"products/combo_view/$1";
 
-$route['comments/displaycomments'] 			= 	"comments/displaycomments";
-$route['comments/insert_comments'] 			= 	"comments/insert_comments";
 
 $route['blog']														= 	"news/home";
 $route['chuyen-muc/(:any)']							=	"news/category/$1";

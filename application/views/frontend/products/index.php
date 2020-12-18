@@ -1,4 +1,5 @@
-		<section id="sub-home-page-stage" class="yCmsContentSlot">
+<div class="main">	
+	<section id="sub-home-page-stage" class="yCmsContentSlot">
 			<div class="stage stage--reduced">
 				<figure>
 					<img src="/assets/img/page_cover.jpg" title="mowoen" class="lazyload img-holder stage__image stage__image--reduced">
@@ -42,14 +43,14 @@
 					</div>-->
 				</div>
 			</div>
-		</div>
+		</section>
 		
 		<section class="utility-bar">
 			<div class="container">
 				<div class="row">
 					<div class="col-6">
 						<div class="pop__result-count">
-							<strong><span class="h2 pop__result-count-heading js-result-count">238</span>&nbsp;Results</strong>
+							<strong><span class="h2 pop__result-count-heading js-result-count"><?=@$total?></span>&nbsp;sản phẩm</strong>
 						</div>
 					</div>
 					<div class="col-6">
@@ -63,14 +64,15 @@
 			<div class="container">
 				<div class="product-wrapper-grid">
 					<div class="row">
+						<?php if ($products) { foreach ($products as $item) { ?>
 						<div class="col-xl-3 col-6 col-grid-box"><!-- Product 1 -->
 							<div class="product-box">
 								<div class="img-block">
-									<a href="#" class="bg-size" style="background-image: url('/assets/img/sample_2.jpg')"></a>
+									<a href="<?=@base_url($item->type.'/products/'.$item->alias)?>" class="bg-size" style="background-image: url('/assets/img/sample_2.jpg')"></a>
 								</div>
 								<div class="product-info product-content">
 									<a href="#">
-										<h6><b>Popular</b> Chậu lavabo treo tường 3CB1301</h6>
+										<h6><b><?=@$item->type?></b> <?=@$item->title?></h6>
 									</a>
 									<!--<div class="item-price">
 										<span itemprop="price" class="price amount"><h5>2.450.000 đ</h5></span>
@@ -79,114 +81,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-xl-3 col-6 col-grid-box"><!-- Product 2 -->
-							<div class="product-box">
-								<div class="img-block">
-									<a href="#" class="bg-size" style="background-image: url('/assets/img/sample_4.jpg')"></a>
-								</div>
-								<div class="product-info product-content">
-									<a href="#">
-										<h6><b>Luxury S</b> Chậu lavabo treo tường 3CB1301</h6>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-6 col-grid-box"><!-- Product 2 -->
-							<div class="product-box">
-								<div class="img-block">
-									<a href="#" class="bg-size" style="background-image: url('/assets/img/sample_2.jpg')"></a>
-								</div>
-								<div class="product-info product-content">
-									<a href="#">
-										<h6><b>Luxury S</b> Chậu lavabo treo tường 3CB1301</h6>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-6 col-grid-box"><!-- Product 2 -->
-							<div class="product-box">
-								<div class="img-block">
-									<a href="#" class="bg-size" style="background-image: url('/assets/img/sample_4.jpg')"></a>
-								</div>
-								<div class="product-info product-content">
-									<a href="#">
-										<h6><b>Luxury S</b> Chậu lavabo treo tường 3CB1301</h6>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-6 col-grid-box"><!-- Product 2 -->
-							<div class="product-box">
-								<div class="img-block">
-									<a href="#" class="bg-size" style="background-image: url('/assets/img/sample_4.jpg')"></a>
-								</div>
-								<div class="product-info product-content">
-									<a href="#">
-										<h6><b>Luxury S</b> Chậu lavabo treo tường 3CB1301</h6>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-6 col-grid-box"><!-- Product 2 -->
-							<div class="product-box">
-								<div class="img-block">
-									<a href="#" class="bg-size" style="background-image: url('/assets/img/sample_2.jpg')"></a>
-								</div>
-								<div class="product-info product-content">
-									<a href="#">
-										<h6><b>Luxury S</b> Chậu lavabo treo tường 3CB1301</h6>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-6 col-grid-box"><!-- Product 2 -->
-							<div class="product-box">
-								<div class="img-block">
-									<a href="#" class="bg-size" style="background-image: url('/assets/img/sample_4.jpg')"></a>
-								</div>
-								<div class="product-info product-content">
-									<a href="#">
-										<h6><b>Luxury S</b> Chậu lavabo treo tường 3CB1301</h6>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-6 col-grid-box"><!-- Product 2 -->
-							<div class="product-box">
-								<div class="img-block">
-									<a href="#" class="bg-size" style="background-image: url('/assets/img/sample_2.jpg')"></a>
-								</div>
-								<div class="product-info product-content">
-									<a href="#">
-										<h6><b>Luxury S</b> Chậu lavabo treo tường 3CB1301</h6>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-6 col-grid-box"><!-- Product 2 -->
-							<div class="product-box">
-								<div class="img-block">
-									<a href="#" class="bg-size" style="background-image: url('/assets/img/sample_4.jpg')"></a>
-								</div>
-								<div class="product-info product-content">
-									<a href="#">
-										<h6><b>Luxury S</b> Chậu lavabo treo tường 3CB1301</h6>
-									</a>
-								</div>
-							</div>
-						</div>
-						<div class="col-xl-3 col-6 col-grid-box"><!-- Product 2 -->
-							<div class="product-box">
-								<div class="img-block">
-									<a href="#" class="bg-size" style="background-image: url('/assets/img/sample_2.jpg')"></a>
-								</div>
-								<div class="product-info product-content">
-									<a href="#">
-										<h6><b>Luxury S</b> Chậu lavabo treo tường 3CB1301</h6>
-									</a>
-								</div>
-							</div>
-						</div>
+						<?php }} ?>
 					</div>
 					
 					<!-- Pagination -->
@@ -266,3 +161,4 @@
 				</div>
 			</div>
 		</section>
+	</div>

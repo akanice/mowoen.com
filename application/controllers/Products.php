@@ -8,10 +8,6 @@ class Products extends MY_Controller {
 		$this->load->model('productsattachmodel');
 		$this->load->model('brandsmodel');
 		$this->load->model('newsmodel');
-		$this->data['categories'] = $this->productscategorymodel->read(array('parent_id'=>0),array(),false,10);
-		$this->data['brands'] = $this->brandsmodel->read(array(),array(),false);
-		$this->data['product_sidebar'] = $this->productsmodel->read(array('featured'=>1),array(),false,5);
-		$this->data['product_gift_content'] = $this->configsmodel->read(array('term'=>'product','name'=>'gift_content'),array(),true)->value;
     }
 
     public function index() {		
@@ -31,45 +27,51 @@ class Products extends MY_Controller {
 			// $this->data['meta_images'] = $this->data['category_data']->image;
 		}
 		
-        $this->data['temp'] = 'frontend/post_type/'.$type;
+        $this->data['temp'] = 'frontend/template/'.$type;
 		$this->load->view('frontend/index', $this->data);
     }
 	
 	public function get_post_type($alias) {
         $type = $this->uri->segment(1); 
 		$post_type = $this->uri->segment(2); 
-		
+		$param_cat_id = $this->input->get('cat_id', TRUE);
 		if (@$post_type != '') {
-			$this->go_post_type_func($type,$alias);
+			$this->go_post_type_func($type,$post_type,$alias,$param_cat_id);
 		} else {
-			redirect(base_url('404_override'));
+			redirect(base_url($type));
 		}
 		
 		$this->load->view('frontend/index', $this->data);
     }
 	
-	private function go_post_type_func($type,$alias) {
-		if (isset($alias) && $alias !== '') {
-			if ($alias == 'products') {
-				$total = count($this->productsmodel->read());
-				$per_page = 16;
-				list($this->data['page_links'],$start)	= $this->productsmodel->pagination($type.'/'.$alias.'/','',$total,$per_page,3);
-				$this->data['page_links'] 					= $this->pagination->create_links();
-				$this->data['products'] 						= $this->productsmodel->read(array(),array(),false,$per_page,$start);
-				
-				$this->data['title'] = 'Sản phẩm nhà tắm';
-				$this->data['temp'] = 'frontend/products/index';
-			} elseif (($alias == 'inspiration') or ($alias == 'guide')) {
-				$total = count($this->newsmodel->read(array('type'=>$alias)));
-				$per_page = 16;
-				list($this->data['page_links'],$start)	= $this->newsmodel->pagination($type.'/'.$alias.'/','',$total,$per_page,3);
-				$this->data['page_links'] 					= $this->pagination->create_links();
-				$this->data['inspiration'] 						= $this->newsmodel->read(array('type'=>$alias),array(),false,$per_page,$start);
-				
-				$this->data['title'] = 'Sản phẩm nhà tắm';
-				$this->data['temp'] = 'frontend/news/index';
-			} else {
-				redirect(base_url('404_override'));
+	private function go_post_type_func($type,$post_type,$alias,$param_cat_id) {
+		// Check if category
+		if (isset($param_cat_id) && $param_cat_id != '' && is_numeric($param_cat_id)) {
+			$this->data['related_cat'] = $this->productscategorymodel->read(array('type'=>$type),array(),false);
+			$this->viewCategory($type,$post_type,$param_cat_id);
+		} else {
+			if (isset($alias) && $alias !== '') {
+				if ($alias == 'products') {
+					$total = $this->data['total'] = count($this->productsmodel->read());
+					$per_page = 20;
+					list($this->data['page_links'],$start)	= $this->productsmodel->pagination($type.'/'.$alias.'/','',$total,$per_page,3);
+					$this->data['page_links'] 					= $this->pagination->create_links();
+					$this->data['products'] 						= $this->productsmodel->read(array(),array(),false,$per_page,$start);
+					
+					$this->data['title'] = 'Sản phẩm nhà tắm';
+					$this->data['temp'] = 'frontend/products/index';
+				} elseif (($alias == 'inspiration') or ($alias == 'guide')) {
+					$total = $this->data['total'] = count($this->newsmodel->read(array('type'=>$alias)));
+					$per_page = 20;
+					list($this->data['page_links'],$start)	= $this->newsmodel->pagination($type.'/'.$alias.'/','',$total,$per_page,3);
+					$this->data['page_links'] 					= $this->pagination->create_links();
+					$this->data['inspiration'] 						= $this->newsmodel->read(array('type'=>$alias),array(),false,$per_page,$start);
+					
+					$this->data['title'] = 'Sản phẩm nhà tắm';
+					$this->data['temp'] = 'frontend/news/index';
+				} else {
+					redirect(base_url($type));
+				}
 			}
 		}
 	}
@@ -77,20 +79,10 @@ class Products extends MY_Controller {
 	public function get_post_data($alias,$item) {
 		if (isset($alias) && $alias !== '') {
 			if ($alias == 'products') {
-				$this->data['product_data'] = $this->productsmodel->read(array('alias'=>$item),array(),true);
-				// Load file_attach
-				$this->data['file_attach'] = @$this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'file_attach'),array(),true)->value;
-				$this->data['actual_image'] = @$this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'actual_image'),array(),true)->value;
-			
-				$this->data['title'] = $this->data['product_data']->title;
-				$this->data['meta_title'] = $this->data['product_data']->meta_title;
-				$this->data['meta_description'] = $this->data['product_data']->meta_description;
-				$this->data['meta_keywords'] = $this->data['product_data']->meta_keywords;
-				$this->data['meta_images'] = $this->data['product_data']->image;
-				$this->data['temp'] = 'frontend/products/view';
+				$this->viewProduct($item);
 			} elseif (($alias == 'inspiration') or ($alias == 'guide')) {
-				$total = count($this->newsmodel->read(array('type'=>$alias)));
-				$per_page = 16;
+				$total = $this->data['total'] = count($this->newsmodel->read(array('type'=>$alias)));
+				$per_page = 20;
 				list($this->data['page_links'],$start)	= $this->newsmodel->pagination($type.'/'.$alias.'/','',$total,$per_page,3);
 				$this->data['page_links'] 					= $this->pagination->create_links();
 				$this->data['inspiration'] 						= $this->newsmodel->read(array('type'=>$alias),array(),false,$per_page,$start);
@@ -105,12 +97,37 @@ class Products extends MY_Controller {
 		$this->load->view('frontend/index', $this->data);
 	}
 	
-	public function viewProduct($alias) {
+	public function viewCategory($type,$post_type,$param_cat_id) {
+		// die($type);
+		$this->data['category_data'] = $this->productscategorymodel->read(array('id'=>$param_cat_id),array(),true);
+		if ($this->data['category_data']) {
+			@$total = $this->data['total'] = count($this->productsmodel->getProductsByCategoryId($type,'',$this->data['category_data']->id,'','','',''));
+			$per_page = 20;
+			list($this->data['page_links'],$start) = $this->productsmodel->pagination($type.'/'.$post_type.'?cat_id='.$param_cat_id,'',$total,$per_page,3);
+			$this->data['products'] = $this->productsmodel->getProductsByCategoryId($type,'',$this->data['category_data']->id,'','',$per_page,$start);
+			
+			$arr_link = array(
+				$type				=> base_url($type),
+				$post_type	=> base_url($type.'/'.$post_type),
+				$this->data['category_data']->title	=> '#',
+			);
+			
+			// All categories by type
+			$this->data['categories'] = $this->productscategorymodel->read(array('type'=>$type,'parent_id'=>0),array(),false,10);
+			
+			$this->data['breadcrumb'] = $this->setBreadcrumbs($arr_link);
+			
+			$this->data['title'] = 'Sản phẩm nhà tắm';
+			$this->data['temp'] = 'frontend/products/category';
+		}
+	}
+	public function viewProduct($item) {
+		$type				= $this->uri->segment(1);
+		$post_type	= $this->uri->segment(2);
 		$this->load->model('videosmodel');
 		
-		if (isset($alias) and ($alias) != '') {
-			$this->data['product_data'] = $this->productsmodel->read(array('alias'=>$alias),array(),true);
-			$this->data['brand'] = $this->brandsmodel->read(array('id'=>$this->data['product_data']->brand),array(),true);
+		if (isset($item) and ($item) != '') {
+			$this->data['product_data'] = $this->productsmodel->read(array('alias'=>$item),array(),true);
 			$cat_array = json_decode($this->data['product_data']->categoryid);
 			
 			// Extract categories what post in it 
@@ -123,25 +140,26 @@ class Products extends MY_Controller {
 			}
 			
 			// Load file_attach
-			$this->data['file_attach'] = @$this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'file_attach'),array(),true)->value;
-			$this->data['actual_image'] = @$this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'actual_image'),array(),true)->value;
-			@$video_id = $this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'video_attach'),array(),true)->value;
-			$this->data['video_attach'] = $this->videosmodel->read(array('id'=>$video_id),array(),true);
+			$this->data['file_attach'] 		= @$this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'file_attach'),array(),true)->value;
+			$this->data['actual_image']	= @$this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'actual_image'),array(),true)->value;
 			
 			// Load related products
-			// $this->data['related_products'] = $this->productsmodel->getRelatedProducts($cat_chosen,8,'');
 			$this->data['related_products'] = $this->productsmodel->getRelatedProducts2($cat_chosen,$this->data['product_data']->price,8,'');
 			
-			$this->data['title'] = $this->data['product_data']->title;
-			$this->data['meta_title'] = $this->data['product_data']->meta_title;
-			$this->data['meta_description'] = $this->data['product_data']->meta_description;
-			$this->data['meta_keywords'] = $this->data['product_data']->meta_keywords;
-			$this->data['meta_images'] = $this->data['product_data']->image;
+			$this->data['title'] 							= $this->data['product_data']->title;
+			$this->data['meta_title']				= $this->data['product_data']->meta_title;
+			$this->data['meta_description']	= $this->data['product_data']->meta_description;
+			$this->data['meta_keywords']		= $this->data['product_data']->meta_keywords;
+			$this->data['meta_images']			= $this->data['product_data']->image;
 			
+			$arr_link = array(
+				$type				=> base_url($type),
+				$post_type	=> base_url($type.'/'.$post_type),
+				$this->data['product_data']->title	=> base_url($type.'/'.$post_type.'/'.$this->data['product_data']->alias),
+			);
+			
+			$this->data['breadcrumb'] = $this->setBreadcrumbs($arr_link);
 			$this->data['temp'] = 'frontend/products/view';
-			$this->load->view('frontend/index', $this->data);
-		} else {
-			redirect(base_url('404_override'));
 		}
 	}
 	
@@ -165,7 +183,7 @@ class Products extends MY_Controller {
 		$this->load->view('frontend/index', $this->data);
     }
 	
-	  public function viewBrands($alias) {
+	public function viewBrands($alias) {
 		$this->load->model('configsmodel');
 		
 		$this->data['brands_data'] = $this->brandsmodel->read(array('alias'=>$alias),array(),true);//print_r($this->data['brands_data']);die();

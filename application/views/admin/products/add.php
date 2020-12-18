@@ -44,16 +44,13 @@
 							</div>
 							<div class="form-group">
 								<label class="col-sm-2 control-label">Giá:</label>
-								<div class="col-sm-3">
+								<div class="col-sm-4">
 									<input type="text" class="form-control" name="price" placeholder="Giá gốc"/>
 								</div>
-								<div class="col-sm-3">
+								<div class="col-sm-4">
 									<input type="text" class="form-control" name="sale_price" placeholder="Giá khuyến mãi"/>
 								</div>
-								<div class="col-sm-3">
-									<input type="text" class="form-control" name="listed_price" placeholder="Giá niêm yết"/>
-								</div>
-								<div class="col-sm-1">
+								<div class="col-sm-2">
 									(VND)
 								</div>
 							</div>
@@ -61,8 +58,8 @@
                                 <label class="col-sm-2 control-label">Loại</label>
                                 <div class="col-sm-4">
                                     <select class="form-control" name="type">
-                                        <option value="product" selected>Sản phẩm thường</option>
-                                        <option value="accessory">Phụ kiện</option>
+                                        <option value="bath" selected>Nhà tắm</option>
+                                        <option value="kitchen">Nhà Bếp</option>
                                     </select>
                                 </div>
 								<label class="col-sm-2 control-label">Sản phẩm nổi bật</label>

@@ -171,6 +171,20 @@ class MY_Controller extends MX_Controller {
         $this->pagination->initialize($config);
     }
 	
+	public function setBreadcrumbs($arr_link) {
+		$html = '';
+		$i = 0;
+		$len = count($arr_link);
+		foreach ($arr_link as $k=>$v) {
+			if ($i == $len - 1) {
+				$html .= '<li class="breadcrumbs__breadcrumb">'.$k.'</li>';
+			} else {
+				$html .= '<li class="breadcrumbs__breadcrumb"><a href="'.$v.'">'.$k.'<i class="fa fa-angle-right"></i></a></li>';
+			}
+			$i++;
+		}
+		return $html;
+	}
 	public function convertYoutube($string) {
 		return preg_replace(
 			"/\s*[a-zA-Z\/\/:\.]*youtu(be.com\/embed\/|.be\/)([a-zA-Z0-9\-_]+)([a-zA-Z0-9\/\*\-\_\?\&\;\%\=\.]*)/i",

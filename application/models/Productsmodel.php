@@ -39,11 +39,6 @@ class ProductsModel extends MY_Model {
             'nullable'  => false,
             'type'      => 'integer'
         ),
-		 'listed_price' => array(
-            'isIndex'   => false,
-            'nullable'  => false,
-            'type'      => 'integer'
-        ),
         'description' => array(
             'isIndex'   => false,
             'nullable'  => false,
@@ -73,11 +68,6 @@ class ProductsModel extends MY_Model {
             'isIndex'   => false,
             'nullable'  => false,
             'type'      => 'integer'
-        ),
-		'brand' => array(
-            'isIndex'   => false,
-            'nullable'  => false,
-            'type'      => 'string'
         ),
 		'image' => array(
             'isIndex'   => false,
@@ -217,7 +207,7 @@ class ProductsModel extends MY_Model {
 		}
 	}
 	
-	public function getProductsByCategoryId($title='',$category_id,$featured=0,$term_order='',$per_page,$start){
+	public function getProductsByCategoryId($type,$title='',$category_id,$featured=0,$term_order='',$per_page,$start){
         $this->db->select('products.*');
 		if ($featured) {
 			$this->db->where('products.featured',$featured);
@@ -228,7 +218,7 @@ class ProductsModel extends MY_Model {
 		if ($category_id) {
 			$this->db->like('categoryid','"'.$category_id.'"');
 		}
-		$this->db->where('type','product');
+		$this->db->where('type',$type);
 		if ($term_order == '') {
 			$this->db->order_by('products.id','desc');
 		} else {
@@ -379,21 +369,6 @@ class ProductsModel extends MY_Model {
 		
 	}
 		
-	public function ElementFilterBrand($categoryid='') {
-		$this->db->select('products.id,products.brand,brands.*');
-		$this->db->join('brands','brands.id = products.brand', 'left');
-		$this->db->group_by('products.brand');
-        if($categoryid != ""){
-			$this->db->like('categoryid','"'.$categoryid.'"');
-		}
-		$query = $this->db->get('products');
-		if($query->num_rows() > 0)  {
-			$data = $query->result();
-			return $data;
-		} else {
-			return false;
-		}
-	}
 		
 	public function ElementFilterMadein($categoryid='') {
 		$this->db->select('products.made_in');

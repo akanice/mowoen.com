@@ -32,14 +32,20 @@
 						<?php 
 							@$cat_array = $products->categoryid;
 							@$cat_alias = $this->productscategorymodel->read(array('id'=>$cat_array[0]),array(),true)->alias;
+							$type = $products->type;
+							$post_type = 'products';
 						?>
-						<h4 class="title">Sửa thông tin sản phẩm <a href="<?=@base_url('san-pham/'.$products->alias)?>" class="btn btn-sm btn-fill btn-warning" target="_blank">Xem</a> <a href="<?=@base_url('admin/products/add/')?>" class="btn btn-sm btn-fill btn-success" target="_blank"><i class="fa fa-plus"></i> Thêm mới</a></h4>
+						<h4 class="title">Sửa thông tin sản phẩm <a href="<?=base_url($type.'/'.$post_type.'/'.$products->alias)?>" class="btn btn-sm btn-fill btn-warning" target="_blank">Xem</a> <a href="<?=@base_url('admin/products/add/')?>" class="btn btn-sm btn-fill btn-success" target="_blank"><i class="fa fa-plus"></i> Thêm mới</a></h4>
 					</div>
 					<div class="content">
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Tên sản phấm*:</label>
-							<div class="col-sm-10">
+							<div class="col-sm-4">
 								<input type="text" class="form-control" name="title" required="" value="<?=$products->title?>"/>
+							</div>
+							<label class="col-sm-2 control-label">Mã sản phẩm:</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" name="sku" value="<?=$products->sku?>"/>
 							</div>
 						</div>
 						<div class="form-group">
@@ -47,45 +53,34 @@
 							<div class="col-sm-10">
 								<div class="input-group">
 									<div class="input-group-addon">
-									<?=base_url()?>
+									<?=base_url($type.'/'.$post_type.'/')?>
 									</div>
 									<input type="text" class="form-control" name="alias" value="<?=@$products->alias?>"/>
 								</div>
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Mã sản phẩm:</label>
-							<div class="col-sm-10">
-								<input type="text" class="form-control" name="sku" value="<?=$products->sku?>"/>
-							</div>
-						</div>
-						<div class="form-group">
 							<label class="col-sm-2 control-label">Giá gốc:</label>
-							<div class="col-sm-3">
+							<div class="col-sm-4">
 								<input type="text" class="form-control" name="price" placeholder="Giá gốc" value="<?=$products->price?>"/>
 							</div>
-							<div class="col-sm-3">
+							<div class="col-sm-4">
 								<input type="text" class="form-control" name="sale_price" placeholder="Giá khuyến mãi" value="<?=$products->sale_price?>"/>
 							</div>
-							<div class="col-sm-3">
-								<input type="text" class="form-control" name="listed_price" placeholder="Giá niêm yết" value="<?=$products->listed_price?>"/>
-							</div>
-							<div class="col-sm-1">
+							<div class="col-sm-2">
 								(VND)
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Loại</label>
-							<div class="col-sm-10">
+							<div class="col-sm-4">
 								<select class="form-control" name="type">
-									<option value="product" <?php if($products->type=='product'){echo 'selected="selected" ';}?>>Sản phẩm thường</option>
-									<option value="accessory" <?php if($products->type=='accessory'){echo 'selected="selected" ';}?>>Phụ kiện</option>
+									<option value="bath" <?php if($products->type=='bath'){echo 'selected="selected" ';}?>>Nhà tắm</option>
+									<option value="kitchen" <?php if($products->type=='kitchen'){echo 'selected="selected" ';}?>>Nhà bếp</option>
 								</select>
 							</div>
-						</div>
-						<div class="form-group">
 							<label class="col-sm-2 control-label">Sản phẩm nổi bật</label>
-							<div class="col-sm-10">
+							<div class="col-sm-4">
 								<select class="form-control" name="featured">
 									<option value="0" <?php if($products->featured==0){echo 'selected="selected" ';}?>>Không</option>
 									<option value="1" <?php if($products->featured==1){echo 'selected="selected" ';}?>>Có</option>
@@ -93,35 +88,25 @@
 							</div>
 						</div>
 						<div class="form-group">
-								<label class="col-sm-2 control-label">Xuất xứ</label>
-								<div class="col-sm-4">
-									<?php
-									$countries = array("Chính hãng","Afghanistan", "Albania", "Algeria", "Samoa thuộc Mỹ", "Andorra", "Angola", "Anguilla", "Nam Cực", "Antigua và Barbuda", "Argentina", "Armenia", "Argentina", "Úc", "Áo", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Bỉ", "Belize", "Bénin", "Bermuda", "Bhutan", "Bôlivia", "Bosnia và Herzegowina", "Botswana", "Đảo Bouvet", "Brazil", "Lãnh thổ Ấn Độ Dương thuộc Anh", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Campuchia", "Cameroon", "Canada", "Cape Verde", "Quần đảo Cayman", "Cộng hòa Trung Phi", "Chad", "Chile", "Trung Quốc", "Đảo Giáng sinh", "Cocos (Keeling ) Quần đảo", "Colombia", "Comoros", "Congo", "Congo, Cộng hòa Dân chủ", "Quần đảo Cook", "Costa Rica", "Bờ Biển Ngà", "Croatia (Hrvatska)", "Cuba", "Síp", "Cộng hòa Séc", "Đan Mạch", "Djibouti", "Dominica", "Cộng hòa Dominican", "Đông Timor", "Ecuador", "Ai Cập", "El Salvador", "Xích đạo Guinea", "Eritrea", "Estonia", "Ethiopia", "Quần đảo Falkland (Malvinas)", "Quần đảo Faroe", "Fiji", "Phần Lan", "P.R.C","Pháp", "Georgia", "Đức", "Ghana", "Gibraltar", "Hy Lạp", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Quần đảo Heard và Mc Donald", "Tòa thánh  Vatican", "Honduras", "Hồng Kông", "Hungary", "Iceland", "Ấn Độ", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Ý", "Jamaica", "Nhật Bản", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Hàn Quốc", "Kuwait", "Kyrgyzstan", "Lào", "Latvia", "Lebanon", "Lesentine", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Litva", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Quần đảo Marshall", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Liên bang", "Moldova, Cộng hòa", "Monaco", "Mông Cổ", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Hà Lan", "Antilles của Hà Lan", "New Caledonia", "New Zealand", "Nicaragua", "Nigeria", "Nigeria", "Niue", "Norfolk Đảo", "Quần đảo Bắc Mariana", "Na Uy", "Ô-man", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Ba Lan", "Bồ Đào Nha", "Puerto Rico", "Qatar", "Romania", "Liên bang Nga", "Rwanda", "Saint Kitts và Nevis", "Saint Lucia", "Saint Vincent và Grenadines", "Samoa", "San Marino", "Sao Tome và Principe", "Ả Rập Saudi", "Sénégal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Cộng hòa Slovak)", "Slovenia", "Quần đảo Solomon", "Somalia", "Nam Phi", "Nam Georgia và quần đảo Nam Sandwich", "Tây Ban Nha", "Sri Lanka", "St. Helena", "St. Pierre và Miquelon", "Sudan", "Suriname", "Svalbard và Jan Mayen Islands", "Swaziland", "Thụy Điển", "Thụy Sĩ", "Cộng hòa Ả Rập Syria", "Đài Loan", "Tajikistan", "Tanzania", "Thái Lan", "Togo", "Tokelau", "Tonga", "Trinidad và Tobago", "Tunisia", "Thổ Nhĩ Kỳ", "Turkmenistan", "Quần đảo Turks và Caicos", "Tuvalu", "Uganda", "Ukraine", "Các tiểu vương quốc Ả Rập thống nhất", "Vương quốc Anh", "Hoa Kỳ", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Việt Nam", "Quần đảo Virgin (Anh)", "Quần đảo Virgin (Mỹ)", "Quần đảo Wallis và Futuna", "Tây Sahara", "Yemen", "Nam Tư", "Zambia", "Zimbabwe");
-									sort($countries);
-									//echo $a;
-									?>
-									<select class="form-control" name="made_in" />
-										<option>---</option>
-										<?php foreach ($countries as $item) {?>
-										<option value="<?=$item?>" <?php if($products->made_in==$item){echo 'selected="selected" ';}?>><?=$item?></option>
-										<?php } ?>
-									</select>
-								</div>
-								<label class="col-sm-2 control-label">Số năm bảo hành</label>
-								<div class="col-sm-4">
-									<input type="text" class="form-control" name="guarantee" placeholder="(Số) năm bảo hành" value="<?=$products->guarantee?>"/>
-								</div>
+							<label class="col-sm-2 control-label">Xuất xứ</label>
+							<div class="col-sm-4">
+								<?php
+								$countries = array("Chính hãng","Afghanistan", "Albania", "Algeria", "Samoa thuộc Mỹ", "Andorra", "Angola", "Anguilla", "Nam Cực", "Antigua và Barbuda", "Argentina", "Armenia", "Argentina", "Úc", "Áo", "Azerbaijan", "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Bỉ", "Belize", "Bénin", "Bermuda", "Bhutan", "Bôlivia", "Bosnia và Herzegowina", "Botswana", "Đảo Bouvet", "Brazil", "Lãnh thổ Ấn Độ Dương thuộc Anh", "Brunei Darussalam", "Bulgaria", "Burkina Faso", "Burundi", "Campuchia", "Cameroon", "Canada", "Cape Verde", "Quần đảo Cayman", "Cộng hòa Trung Phi", "Chad", "Chile", "Trung Quốc", "Đảo Giáng sinh", "Cocos (Keeling ) Quần đảo", "Colombia", "Comoros", "Congo", "Congo, Cộng hòa Dân chủ", "Quần đảo Cook", "Costa Rica", "Bờ Biển Ngà", "Croatia (Hrvatska)", "Cuba", "Síp", "Cộng hòa Séc", "Đan Mạch", "Djibouti", "Dominica", "Cộng hòa Dominican", "Đông Timor", "Ecuador", "Ai Cập", "El Salvador", "Xích đạo Guinea", "Eritrea", "Estonia", "Ethiopia", "Quần đảo Falkland (Malvinas)", "Quần đảo Faroe", "Fiji", "Phần Lan", "P.R.C","Pháp", "Georgia", "Đức", "Ghana", "Gibraltar", "Hy Lạp", "Greenland", "Grenada", "Guadeloupe", "Guam", "Guatemala", "Guinea", "Guinea-Bissau", "Guyana", "Haiti", "Quần đảo Heard và Mc Donald", "Tòa thánh  Vatican", "Honduras", "Hồng Kông", "Hungary", "Iceland", "Ấn Độ", "Indonesia", "Iran", "Iraq", "Ireland", "Israel", "Ý", "Jamaica", "Nhật Bản", "Jordan", "Kazakhstan", "Kenya", "Kiribati", "Hàn Quốc", "Kuwait", "Kyrgyzstan", "Lào", "Latvia", "Lebanon", "Lesentine", "Liberia", "Libyan Arab Jamahiriya", "Liechtenstein", "Litva", "Luxembourg", "Macau", "Macedonia", "Madagascar", "Malawi", "Malaysia", "Maldives", "Mali", "Malta", "Quần đảo Marshall", "Martinique", "Mauritania", "Mauritius", "Mayotte", "Mexico", "Micronesia, Liên bang", "Moldova, Cộng hòa", "Monaco", "Mông Cổ", "Montserrat", "Morocco", "Mozambique", "Myanmar", "Namibia", "Nauru", "Nepal", "Hà Lan", "Antilles của Hà Lan", "New Caledonia", "New Zealand", "Nicaragua", "Nigeria", "Nigeria", "Niue", "Norfolk Đảo", "Quần đảo Bắc Mariana", "Na Uy", "Ô-man", "Pakistan", "Palau", "Panama", "Papua New Guinea", "Paraguay", "Peru", "Philippines", "Pitcairn", "Ba Lan", "Bồ Đào Nha", "Puerto Rico", "Qatar", "Romania", "Liên bang Nga", "Rwanda", "Saint Kitts và Nevis", "Saint Lucia", "Saint Vincent và Grenadines", "Samoa", "San Marino", "Sao Tome và Principe", "Ả Rập Saudi", "Sénégal", "Seychelles", "Sierra Leone", "Singapore", "Slovakia (Cộng hòa Slovak)", "Slovenia", "Quần đảo Solomon", "Somalia", "Nam Phi", "Nam Georgia và quần đảo Nam Sandwich", "Tây Ban Nha", "Sri Lanka", "St. Helena", "St. Pierre và Miquelon", "Sudan", "Suriname", "Svalbard và Jan Mayen Islands", "Swaziland", "Thụy Điển", "Thụy Sĩ", "Cộng hòa Ả Rập Syria", "Đài Loan", "Tajikistan", "Tanzania", "Thái Lan", "Togo", "Tokelau", "Tonga", "Trinidad và Tobago", "Tunisia", "Thổ Nhĩ Kỳ", "Turkmenistan", "Quần đảo Turks và Caicos", "Tuvalu", "Uganda", "Ukraine", "Các tiểu vương quốc Ả Rập thống nhất", "Vương quốc Anh", "Hoa Kỳ", "Uruguay", "Uzbekistan", "Vanuatu", "Venezuela", "Việt Nam", "Quần đảo Virgin (Anh)", "Quần đảo Virgin (Mỹ)", "Quần đảo Wallis và Futuna", "Tây Sahara", "Yemen", "Nam Tư", "Zambia", "Zimbabwe");
+								sort($countries);
+								//echo $a;
+								?>
+								<select class="form-control" name="made_in" />
+									<option>---</option>
+									<?php foreach ($countries as $item) {?>
+									<option value="<?=$item?>" <?php if($products->made_in==$item){echo 'selected="selected" ';}?>><?=$item?></option>
+									<?php } ?>
+								</select>
 							</div>
-							<div class="form-group">
-								<label class="col-sm-2 control-label">Nhãn hiệu</label>
-								<div class="col-sm-4">
-									<select class="form-control" name="brand" />
-										<?php if ($brands) {foreach ($brands as $i) {?>
-										<option value="<?=$i->id?>" <?php if($products->brand==$i->id){echo 'selected="selected" ';}?>><?=$i->name?></option>
-										<?php }} ?>
-									</select>
-								</div>
+							<label class="col-sm-2 control-label">Số năm bảo hành</label>
+							<div class="col-sm-4">
+								<input type="text" class="form-control" name="guarantee" placeholder="(Số) năm bảo hành" value="<?=$products->guarantee?>"/>
 							</div>
+						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Mô tả ngắn:</label>
 							<div class="col-sm-10">

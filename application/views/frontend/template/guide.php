@@ -1,7 +1,8 @@
+	<div class="main">	
 		<section id="sub-home-page-stage" class="yCmsContentSlot">
 			<div class="stage stage--reduced">
 				<figure>
-					<img sizes="(min-width: 1px) 100vw" src="/assets/img/page_cover2.jpg" title="Mowoen" class="lazyload img-holder stage__image stage__image--reduced">
+					<img sizes="(min-width: 1px) 100vw" src="/assets/img/page_cover.jpg" title="Mowoen" class="lazyload img-holder stage__image stage__image--reduced">
 				</figure>
 			</div>
 		</section>
@@ -175,3 +176,4 @@
 				</div>
 			</div>
 		</section>
+	</div>
