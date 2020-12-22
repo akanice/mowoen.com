@@ -1340,7 +1340,28 @@ element.style {
 	border-bottom: 3px solid #26a792;
 	border-radius: 0;
 }
-
 .product_detail .tab-content .tab-pane {
 	padding: 100px 0 60px;
+}
+ol.is-multicolumn, ul.is-multicolumn {
+    width: 100%;
+    padding-left: 0;
+}
+ol.is-multicolumn li, ul.is-multicolumn li {
+	margin: 0 0 15px 20px;
+	position: relative;
+	color: #333;
+}
+ol.is-multicolumn li:before, ul.is-multicolumn li:before {
+    color: #c4c4c4;
+    position: absolute;
+    left: -20px;
+}
+ul.is-multicolumn>li:before {
+    font-size: 12px;
+	font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    line-height: 26px;
+    content: "\f0da";
+    top: 0;
 }

@@ -26,24 +26,7 @@
 
 		<div class="row-wrapper">
 			<div class="container">
-				<div class="yCmsContentSlot footer-social-media">
-					<div class="yCmsComponent footer-social-media__item">
-						<a href="https://www.facebook.com/Mowoen" title="Facebook" target="_blank" class="footer-social-media__item-link"><i class="icon icon-facebook"></i></a>
-					</div>
-					<div class="yCmsComponent footer-social-media__item">
-						<a href="https://www.instagram.com/Mowoen" title="Instagram" target="_blank" class="footer-social-media__item-link"><i class="icon icon-instagram"></i></a>
-					</div>
-					<div class="yCmsComponent footer-social-media__item">
-						<a href="https://www.youtube.com/Mowoen" title="YouTube" target="_blank" class="footer-social-media__item-link"><i class="icon icon-youtube"></i></a>
-					</div>
-					<div class="yCmsComponent footer-social-media__item">
-						<a href="https://www.pinterest.com/Mowoen/" title="Pinterest" target="_blank" class="footer-social-media__item-link"><i class="icon icon-pinterest"></i></a>
-					</div>
-				</div>
-				<div class="newsletter-link">
-					<span class="btn btn--tertiary btn--tertiary-bright">
-						Newsletter</span>
-				</div>
+				
 			</div>
 		</div>
 

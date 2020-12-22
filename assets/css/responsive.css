@@ -118,6 +118,12 @@
 	.product-description {
 		margin-top: 40px;
 	}
+	ol.is-multicolumn, ul.is-multicolumn {
+		-webkit-column-count: 2;
+		column-count: 3;
+		-webkit-column-gap: 3.125rem;
+		column-gap: 3.125rem;
+	}
 } /* min-width: 600px */
 
 @media screen and (min-width: 992px) {
