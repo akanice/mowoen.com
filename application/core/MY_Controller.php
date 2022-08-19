@@ -172,7 +172,24 @@ class MY_Controller extends MX_Controller {
         $config['attributes'] = array('class' => 'page-link');
         $this->pagination->initialize($config);
     }
-	
+
+	public function loadPostData($id,$post_type='post') {
+		// $this->load->model('postsmodel');
+		// $this->load->model('postscategorymodel');
+		// $this->load->model('postsmetamodel');
+		$this->data['list_cat_id'] = $this->postscategorymodel->getSortedCategories($post_type);
+		$this->data['posts'] = $posts = $this->postsmodel->read(array('id'=>$id),array(),true);
+		$cat_id = $this->data['posts']->categoryid = json_decode($this->data['posts']->categoryid);
+		
+		$meta_data = $this->postsmetamodel->read(array('post_id'=>$id));
+
+		foreach ($meta_data as $k=>$v) {
+			$n = $v->meta_key;
+			$posts->$n = $v->meta_value;
+		}
+		return $posts;
+	}
+
 	public function setBreadcrumbs($arr_link) {
 		$html = '';
 		$i = 0;

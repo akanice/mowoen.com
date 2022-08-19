@@ -38,28 +38,36 @@
 							<h4 class="js-accordeon-title footer-navigation__heading">Nhà tắm</h4>
 							<ul class="js-accordeon-content" style="">
 								<li class="footer-navigation-item__container">
-									<a href="<?=base_url('bathroom/products?cat_id=2')?>">
+									<a href="<?=base_url('bathroom/products?cat_id=48')?>">
 										<h5 class="footer-navigation__link-title">
-											<span>Vòi chậu rửa</span>
+											<span>Bồn tắm</span>
 										</h5>
 									</a>
-									<p>Các sản phẩm vòi chậu rửa mặt nhà tắm</p>
+									<p>Bồn tắm Mowoen cao cấp dành cho nhà tắm</p>
 								</li>
 								<li class="footer-navigation-item__container">
-									<a href="<?=base_url('bathroom/products?cat_id=1')?>">
+									<a href="<?=base_url('bathroom/products?cat_id=56')?>">
 										<h5 class="footer-navigation__link-title">
-											<span>Sen tắm</span>
+											<span>Tủ gương</span>
 										</h5>
 									</a>
-									<p>Các sản phẩm sen tắm</p>
+									<p>Tủ đồ kèm gương cao cấp dành cho phòng tắm</p>
 								</li>
 								<li class="footer-navigation-item__container">
-									<a href="<?=base_url('bathroom/products?cat_id=50')?>">
+									<a href="<?=base_url('bathroom/products?cat_id=52')?>">
 										<h5 class="footer-navigation__link-title">
-											<span>Phụ kiện phòng tắm</span>
+											<span>Sen vòi bồn tắm</span>
 										</h5>
 									</a>
-									<p>Phụ kiện dành cho nhà tắm</p>
+									<p>Sen vòi dành cho bồn tắm</p>
+								</li>
+								<li class="footer-navigation-item__container">
+									<a href="<?=base_url('bathroom/products?cat_id=49')?>">
+										<h5 class="footer-navigation__link-title">
+											<span>Tủ chậu phòng tắm</span>
+										</h5>
+									</a>
+									<p>Tủ và chậu rửa mặt cao cấp dành cho phòng tắm</p>
 								</li>
 							</ul>
 						</li>
@@ -87,47 +95,26 @@
 						</li>
 						
 						<li class="js-accordeon-item footer-navigation__item col-md-3 col-6 footer_col3">
-							<h4 class="js-accordeon-title footer-navigation__heading">Series Premium</h4>
+							<h4 class="js-accordeon-title footer-navigation__heading">Tin tức</h4>
 							<ul class="js-accordeon-content" style="">
 								<li class="footer-navigation-item__container">
-									<a href="<?=@base_url('bathroom/inspiration/dawn-series')?>">
+									<a href="<?=@base_url('cat/tin-tuc-khac')?>">
 										<h5 class="footer-navigation__link-title">
-											<span><span class="text-highlight">DAWN</span> Series</span>
+											<span><span class="text-highlight">Tin mới</span></span>
 										</h5>
 									</a>
 								</li>
 								<li class="footer-navigation-item__container">
-									<a href="<?=@base_url('bathroom/inspiration/aurora-series')?>">
+									<a href="<?=@base_url('cat/tin-khuyen-mai')?>">
 										<h5 class="footer-navigation__link-title">
-											<span><span class="text-highlight">AURORA</span> Series</span>
+											<span><span class="text-highlight">Tin khuyến mãi</span></span>
 										</h5>
 									</a>
 								</li>
 								<li class="footer-navigation-item__container">
-									<a href="<?=@base_url('bathroom/inspiration/sole-series')?>">
+									<a href="<?=@base_url('cat/tuyen-dung')?>">
 										<h5 class="footer-navigation__link-title">
-											<span><span class="text-highlight">SOLE</span> Series</span>
-										</h5>
-									</a>
-								</li>
-								<li class="footer-navigation-item__container">
-									<a href="<?=@base_url('bathroom/inspiration/luna-series')?>">
-										<h5 class="footer-navigation__link-title">
-											<span><span class="text-highlight">LUNA</span> Series</span>
-										</h5>
-									</a>
-								</li>
-								<li class="footer-navigation-item__container">
-									<a href="<?=@base_url('bathroom/inspiration/giotto-series')?>">
-										<h5 class="footer-navigation__link-title">
-											<span><span class="text-highlight">GIOTTO</span> Series</span>
-										</h5>
-									</a>
-								</li>
-								<li class="footer-navigation-item__container">
-									<a href="<?=@base_url('bathroom/inspiration/loca-series')?>">
-										<h5 class="footer-navigation__link-title">
-											<span><span class="text-highlight">LOCA</span> Series</span>
+											<span><span class="text-highlight">Tuyển dụng</span></span>
 										</h5>
 									</a>
 								</li>
@@ -172,22 +159,22 @@
 					<nav>
 						<ul>
 							<li class="">
-								<a href="/imprint" title="Imprint" target="">
+								<a href="#" title="Imprint" target="">
 									<span>Imprint</span>
 								</a>
 							</li>
 							<li class="">
-								<a href="/privacy" title="Privacy Policy" target="">
+								<a href="#" title="Privacy Policy" target="">
 									<span>Privacy Policy</span>
 								</a>
 							</li>
 							<li class="">
-								<a href="/legal-notice" title="Legal Notice" target="">
+								<a href="#" title="Legal Notice" target="">
 									<span>Legal Notice</span>
 								</a>
 							</li>
 							<li class="">
-								<a href="/cookie-guidelines" title="Cookie Policy" target="">
+								<a href="#" title="Cookie Policy" target="">
 									<span>Cookie Policy</span>
 								</a>
 							</li>

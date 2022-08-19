@@ -1,8 +1,8 @@
 	<div class="boutique-notice-block">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6"> <a href="#" style="margin-right: 25px;"><span class="text"><i class="fas fa-phone-volume" style="margin-right: 7px;"></i>Gọi chúng tôi: <span><?=@$home_hotline?></span></span></a> <a href="#"><span class="text"><i class="far fa-envelope" style="margin-right: 7px;"></i>Email: info@mowoen.com</span></a></div>
-				<div class="col-sm-6 text-sm-right"> <span>Liên hệ:</span> <span class="header-social-icons"> <a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a> <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a> <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a> <a href="https://www.pinterest.com/"><i class="fab fa-pinterest"></i></a> <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a> </span></div>
+				<div class="col-sm-8"> <span class="text mr-2"><i class="fas fa-phone-volume" style="margin-right: 7px;"></i>Miền Bắc: <a href="0813946789"><b>0813.946.789</b></a> | Miền Nam: <a href="0837473789"><b>0837.473.789</b></a></span> <a href="#"><span class="text"><i class="far fa-envelope" style="margin-right: 7px;"></i>Email: info@mowoen.com</span></a></div>
+				<div class="col-sm-4 text-sm-right"> <span>Liên hệ:</span> <span class="header-social-icons"> <a href="https://facebook.com/"><i class="fab fa-facebook-f"></i></a> <a href="https://twitter.com/"><i class="fab fa-twitter"></i></a> <a href="https://www.instagram.com/"><i class="fab fa-instagram"></i></a> <a href="https://www.pinterest.com/"><i class="fab fa-pinterest"></i></a> <a href="https://www.youtube.com"><i class="fab fa-youtube"></i></a> </span></div>
 			</div>
 		</div>
 	</div>
@@ -88,6 +88,18 @@
 													</div>
 												</li>
 												<li class="ui-menu-item level0 classic parent">
+													<div class="open-children-toggle"></div> <a href="#" class="level-top"><span>Đại lý</span></a>
+													<div class="level0 submenu">
+														<div class="row">
+															<ul class="subchildmenu">
+																<li class="ui-menu-item level1"><a href="#"><span>Tìm điểm bán</span></a></li>
+																<li class="ui-menu-item level1"><a href="#"><span>Chính sách đại lý</span></a></li>
+																<li class="ui-menu-item level1"><a href="#"><span>Đăng ký đại lý</span></a></li>
+															</ul>
+														</div>
+													</div>
+												</li>
+												<li class="ui-menu-item level0 classic parent">
 													<div class="open-children-toggle"></div> <a href="#" class="level-top"><span>Về Mowoen</span></a>
 													<div class="level0 submenu">
 														<div class="row">
@@ -97,6 +109,7 @@
 														</div>
 													</div>
 												</li>
+												<li class="ui-menu-item level0"> <a href="<?=base_url('blog')?>" class="level-top" target="_blank"><span>Blog</span></a></li>
 												<!--<li class="ui-menu-item level0"> <a href="#" class="level-top" target="_blank"><span>Purchase</span></a></li>-->
 											</ul>
 										</nav>
@@ -113,6 +126,7 @@
 										<div class="field search"> <label class="label" for="search" data-role="minisearch-label"> <span>Search</span> </label>
 											<div class="control"> 
 												<input id="search" type="text" name="name" value="" placeholder="Search here..." class="input-text" maxlength="128" role="combobox" aria-haspopup="false" aria-autocomplete="both" autocomplete="off">
+												<input type="hidden" name="type" value="" />
 											</div>
 										</div>
 										<div class="actions"> <button type="submit" title="Search" class="action search"> <i class="icon fa fa-search"></i> <span>Tìm kiếm</span> </button></div>

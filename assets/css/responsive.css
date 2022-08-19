@@ -67,6 +67,24 @@
 		width: calc(100% * 1 - 0px * 0);
 		height: calc(50% - 10px);
 	}
+	.nav-post-links .prev-post .nav-post-link:hover {
+		padding: 14px 20px 13px 52px;
+	}
+	.nav-post-links .next-post .nav-post-link:hover {
+		padding: 14px 52px 13px 20px;
+	}
+	.nav-post-links .nav-post-link:hover {
+		background-color: #FFFFFF;
+		box-shadow: 0 20px 38px 0 rgb(91 135 173 / 15%);
+	}
+	.nav-post-links .nav-post-link:hover:before {
+		width: 52px;
+		background-color: #27a691;
+	}
+	.nav-post-links .nav-post-link:hover:after {
+		width: 52px;
+		color: #FFFFFF;
+	}
 }
 
 @media (min-width: 600px) {
@@ -409,7 +427,6 @@
         display: inline-block;
         font-weight: normal;
         overflow: hidden;
-        speak: none;
         text-align: center
     }
 
@@ -537,7 +554,6 @@
         display: inline-block;
         font-weight: normal;
         overflow: hidden;
-        speak: none;
         text-align: center
     }
 
@@ -559,7 +575,6 @@
         display: inline-block;
         font-weight: normal;
         overflow: hidden;
-        speak: none;
         text-align: center
     }
 
@@ -891,7 +906,6 @@
 		font-size: 12px;
 		line-height: 40px;
 		font-family: "Font Awesome 5 Free";
-		speak: none;
 		font-style: normal;
 		font-weight: 900;
 		font-variant: normal;
@@ -1107,4 +1121,5 @@
 	}
 	.circleview {
 		bottom: 166px;
+	}
 }

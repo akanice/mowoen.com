@@ -1,13 +1,13 @@
 	<div class="main">	
 		<section id="sub-home-page-stage" class="yCmsContentSlot">
 			<div class="stage stage--reduced">
-				<figure>
-					<img src="<?php if ($type == 'bathroom') {?>/assets/img/page_cover4.jpg<?php } else {?>/assets/img/page_cover3.jpg<?php } ?>" title="mowoen" class="lazyload img-holder stage__image stage__image--reduced">
+				<figure><?php $type='bathroom';?>
+					<img src="<?php if ($type == 'bathroom') {?>/assets/img/page_cover.jpg<?php } else {?>/assets/img/page_cover3.jpg<?php } ?>" title="mowoen" class="lazyload img-holder stage__image stage__image--reduced">
 				</figure>
 			</div>
 		</section>
 		
-		<?php if ($categories) { ?>
+		<?php if (@$categories) { ?>
 		<section class="menu_cat">
 			<div class="pop-navigation" data-t-name="PopNavigation" data-t-id="4">
 				<div class="pop-navigation__selection">

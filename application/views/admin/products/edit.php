@@ -91,8 +91,20 @@
 						<div class="form-group">
 							<label class="col-sm-2 control-label">Link video</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="videos" placeholder="https://www.youtube.com/watch?v=5bfUQc8beUw" value="<?=@$p_video_attach?>"/>
+								<input type="text" class="form-control" name="videos" id="videos" value="<?=@$p_video_attach?>" readonly />
+								<p><a href="/assets/filemanager/dialog.php?type=3&field_id=videos&relative_url=1&multiple=0" class="btn btn-sm btn-fill btn-success iframe-btn" type="button">Thêm video</a></p>
+								<!-- <input type="text" class="form-control" name="videos" placeholder="https://www.youtube.com/watch?v=5bfUQc8beUw"/> -->
 							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Thumbnail video</label>
+							<div class="col-sm-8">
+								<input type="text" class="form-control" name="videos_thumb" id="videos_thumb" value="<?=@$p_video_attach_thumb?>" readonly />
+								<p><a href="/assets/filemanager/dialog.php?type=1&field_id=videos_thumb&relative_url=1&multiple=0" class="btn btn-sm btn-fill btn-success iframe-btn" type="button">Thêm thumbnail video</a></p>
+							</div>
+							<?php if (@$p_video_attach_thumb && $p_video_attach_thumb != '') {?>
+							<div class="col-sm-2"><img src="<?=base_url('assets/uploads/'.$p_video_attach_thumb)?>" class="img-holder" width="64" /></div>
+							<?php } ?>
 						</div>
 						<div class="form-group" id="prod_variant">
 							<label class="col-sm-2 control-label">File đính kèm</label>

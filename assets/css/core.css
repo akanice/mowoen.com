@@ -1217,6 +1217,11 @@ element.style {
     content: "";
     display: block;
 }
+.ratio43_square .bg-size:before {
+    padding-top: 65%;
+    content: "";
+    display: block;
+}
 .grid_product {
 	margin-top: 30px;
 	padding-bottom: 60px;
@@ -1517,11 +1522,6 @@ pre {
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
-    display: block;
-}
-.ratio_square .bg-size:before {
-    padding-top: 100%;
-    content: "";
     display: block;
 }
 .slider-nav .slick-slide.slick-current.slick-active .nav-item {

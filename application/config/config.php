@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = 'http://mowoen.vn';
+$config['base_url'] = 'http://vn.mowoen';
 
 define('HTTP_UPLOAD_IMPORT_PATH', $config['base_url'] . 'assets/uploads/files/');
 define('ROOT_UPLOAD_PATH',  $_SERVER['DOCUMENT_ROOT'] . '/assets/uploads/');
@@ -494,7 +494,6 @@ $config['compress_output'] = FALSE;
 |
 */
 $config['time_reference'] = 'local';
-
 /*
 |--------------------------------------------------------------------------
 | Rewrite PHP Short Tags

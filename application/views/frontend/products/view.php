@@ -20,24 +20,67 @@
 				<div class="row align-items-start">
 					<div class="col-12 col-md-5">
 						<?php if ((@$product_data->gallery) && @count(json_decode($product_data->gallery)) == 0) {?>
-							<img src="<?=@base_url($product_data->image)?>" class="img-holder p_detail_img">
+							<div class="product-slick">
+								<?php if (@$video_attach && @$video_attach!='') {?>
+								<div class="d-flex justify-content-center align-items-center">
+									<div class="embed-responsive embed-responsive-1by1">
+										<video width="640" height="480" controls>
+											<source src="<?=@base_url('assets/uploads/'.$video_attach)?>" />
+											Your browser does not support the video tag.
+										</video>
+									</div>
+								</div>
+								<?php } ?>
+								<div>
+									<a href="<?=@base_url($product_data->image)?>" data-lightbox="roadtrip"><img src="<?=@base_url($product_data->image)?>" alt="" class="img-fluid"></a>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-12 col-slick"><!-- Slider Thumb -->
+									<div class="slider-nav ratio_square">
+										<?php if (@$video_attach && @$video_attach!='') {?>
+											<div>
+												<div class="nav-item thumb bg-size position-relative video_play" data-toggle="modal" data-target="#modalVideo" style="background-image:url('<?=@base_url($video_attach_thumb)?>')"><span class="btn-play-video"><i class="fa fa-youtube"></i></span></div>
+											</div>
+										<?php } ?>
+										<div>
+											<div class="nav-item thumb bg-size" style="background-image:url('<?=@base_url($product_data->thumb)?>')"></div>
+										</div>
+									</div>
+								</div>
+							</div>
 							<?php if ((@$circleview) && @count($circleview) != 0) { ?>
 								<div class="circleview"><a class="btncircle" data-toggle="modal" data-target="#featureModal2"><img src="<?=base_url('assets/img/360-degrees.png')?>"></a></div>
 							<?php } ?>
 						<?php } else { ?>
-							<div class="product-slick">
-								<div>
-									<a href="<?=@base_url($product_data->image)?>" data-title="<a download='<?=@$product_data->title?>-1' href='<?=@base_url($product_data->image)?>'>Lưu ảnh về máy</a>" data-lightbox="roadtrip"><img src="<?=@base_url($product_data->image)?>" alt="" class="img-fluid"></a>
+							<div class="product-slick"><!-- Slider Main -->
+								<?php if (@$video_attach && @$video_attach!='') {?>
+								<div class="d-flex justify-content-center align-items-center">
+									<div class="embed-responsive embed-responsive-1by1">
+										<video width="640" height="480" controls>
+											<source src="<?=@base_url('assets/uploads/'.$video_attach)?>" />
+											Your browser does not support the video tag.
+										</video>
+									</div>
 								</div>
-								<?php $i=2;foreach (json_decode($product_data->gallery) as $item) {?>
+								<?php } ?>
 								<div>
-									<a href="<?=@($item)?>" data-title="<a download='<?=@$product_data->title.$i?>' href='<?=@base_url($product_data->image)?>'>Lưu ảnh về máy</a>" data-lightbox="roadtrip"><img src="<?=@($item)?>" alt="" class="img-fluid"></a>
+									<a href="<?=@base_url($product_data->image)?>" data-lightbox="roadtrip"><img src="<?=@base_url($product_data->image)?>" alt="" class="img-fluid"></a>
 								</div>
-								<?php $i++;} ?>
+								<?php foreach (json_decode($product_data->gallery) as $item) {?>
+								<div>
+									<a href="<?=@($item)?>" data-lightbox="roadtrip"><img src="<?=@($item)?>" alt="" class="img-fluid"></a>
+								</div>
+								<?php } ?>
 							</div>
 							<div class="row">
-								<div class="col-12 col-slick pt-1">
+								<div class="col-md-12 col-12 col-slick"><!-- Slider Thumb -->
 									<div class="slider-nav ratio_square">
+										<?php if (@$video_attach && @$video_attach!='') {?>
+										<div>
+											<div class="nav-item thumb bg-size position-relative video_play" data-toggle="modal" data-target="#modalVideo" style="background-image:url('<?=@base_url($video_attach_thumb)?>')"><span class="btn-play-video"><i class="fab fa-youtube"></i></span></div>
+										</div>
+										<?php } ?>
 										<div>
 											<div class="nav-item thumb bg-size" style="background-image:url('<?=@base_url($product_data->thumb)?>')"></div>
 										</div>
@@ -49,16 +92,9 @@
 									</div>
 								</div>
 							</div>
-							<?php if ($actual_image) {?>
-							<ul class="nav nav-tabs justify-content-center text-center" role="tablist">
-								<li class="nav-item" role="presentation">
-									<a class="scroll1" data-toggle="tab" href="#images" role="tab" aria-controls="images" aria-selected="false"><u>Xem thêm hình ảnh thực tế</u></a>
-								<li class="nav-item" role="presentation">
-							</ul>
-							<?php } ?>
 							
 							<?php if ((@$circleview) && @count($circleview) != 0) { ?>
-								<div class="circleview"><a class="btncircle" data-toggle="modal" data-target="#featureModal2"><img src="<?=base_url('assets/img/360-degrees.png')?>"></a></div>
+								<div class="circleview"><div class="btncircle" data-toggle="modal" data-target="#featureModal2"><img src="<?=base_url('assets/img/360-degrees.png')?>"></div></div>
 							<?php } ?>
 						<?php } ?>
 						<div class="modal fade" id="featureModal2" tabindex="-1" aria-labelledby="featureLabel2" aria-hidden="true">
@@ -67,7 +103,7 @@
 									<button type="button" class="close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></button>
 									<div class="pure_circle">
 										<div id="circlr">
-											<?php foreach ($circleview as $item) {?>
+											<?php foreach (@$circleview as $item) {?>
 											<img data-src="<?=@($item)?>" class="img-circle">
 											<?php } ?>
 											<div id="loader"></div>
@@ -96,7 +132,7 @@
 							</div>
 
 							<div class="">
-								<?php foreach ($file_attach as $item) {	?>
+								<?php if ($file_attach) {foreach ($file_attach as $item) {	?>
 									<a href="<?=base_url('assets/uploads/'.$item->prodpath)?>" class="d-flex align-self-center mb-2 wrap-item align-items-center" target="_blank">
 										<span class="mr-1 file-icon">
 											<?php $path_info = pathinfo($item->prodpath);$ext=$path_info['extension']; 
@@ -110,7 +146,7 @@
 										</span>
 										<span class="file-name"><?=@$item->prodname?></span>
 									</a>	
-								<?php } ?>
+								<?php }} ?>
 							</div>
 						</div>
 					</div>

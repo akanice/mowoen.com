@@ -75,7 +75,7 @@
 				<li class="<?php if ((@$type == 'other') and (($suffix_uri == 'newscategory') or ($suffix_uri == 'news') or ($suffix_uri == 'pages'))) echo 'active';?>">
 					<a data-toggle="collapse" href="#componentsExamples">
 						<i class="pe-7s-notebook"></i>
-						<p>Bài viết
+						<p>Trang
 						   <b class="caret"></b>
 						</p>
 					</a>
@@ -87,6 +87,21 @@
 					</div>
 				</li>
 				
+				<li class="<?php if (($suffix_uri == 'posts') or ($suffix_uri == 'postscategory')) echo 'active';?>">
+					<a data-toggle="collapse" href="#blogMenu">
+						<i class="pe-7s-network"></i>
+						<p>Blog
+						   <b class="caret"></b>
+						</p>
+					</a>
+					<div class="collapse <?php if (($suffix_uri == 'postscategory') or ($suffix_uri == 'posts')) echo 'in';?>" id="blogMenu">
+						<ul class="nav">
+							<li class="<?php if ($suffix_uri == 'postscategory') echo 'active'?>"><a href="<?=base_url('admin/postscategory')?>">Danh mục blog</a></li>
+							<li class="<?php if ($suffix_uri == 'posts') echo 'active'?>"><a href="<?=base_url('admin/posts')?>">Bài viết</a></li>
+						</ul>
+					</div>
+				</li>
+
 				<?php $type=$this->input->get('type');$post_type=$this->input->get('post_type');?>
 				<!-- <li class="<?php if (($type == 'bathroom') and (($suffix_uri == 'newscategory') or ($suffix_uri == 'news') or ($suffix_uri == 'pages'))) echo 'active';?>">
 					<a data-toggle="collapse" href="#componentsBath">

@@ -1516,3 +1516,35 @@ header .desktop-menu .sm-horizontal > li > a {
 	background-position: center center;
 }
 .text-underline {text-decoration: underline !important;}
+
+.slider-nav .slick-slide.slick-current.slick-active .nav-item {
+	border: 1px solid #484848;
+	opacity: 1;
+}
+.slick-track{
+	display: flex !important;
+}
+.slick-initialized .slick-slide {
+	display: block;
+}
+.slider-nav .slick-list {
+	margin: 0 -10px;
+}
+.slider-nav .slick-slide {
+    margin: 0 5px;
+}
+.slide-6 .slick-list {
+    margin: 0 -10px;
+}
+.slide-6 .slick-slide {
+    margin: 0 10px;
+}
+.sku {
+	color: #fff;
+}
+.sub-heading {
+	font-size: 17px;
+    color: #515155;
+    line-height: 1;
+    text-transform: uppercase;
+}

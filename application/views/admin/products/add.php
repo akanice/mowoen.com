@@ -72,9 +72,19 @@
 							</div>
 						</div>
 						<div class="form-group">
-							<label class="col-sm-2 control-label">Link video</label>
+							<label class="col-sm-2 control-label">Video</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" name="videos" placeholder="https://www.youtube.com/watch?v=5bfUQc8beUw"/>
+								<input type="text" class="form-control" name="videos" id="videos" readonly />
+								<p><a href="/assets/filemanager/dialog.php?type=3&field_id=videos&relative_url=1&multiple=0" class="btn btn-sm btn-fill btn-success iframe-btn" type="button">Thêm video</a></p>
+								<!-- <input type="text" class="form-control" name="videos" placeholder="https://www.youtube.com/watch?v=5bfUQc8beUw"/> -->
+							</div>
+						</div>
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Thumbnail Video</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" name="videos_thumb" id="videos_thumb" readonly />
+								<p><a href="/assets/filemanager/dialog.php?type=1&field_id=videos_thumb&relative_url=1&multiple=0" class="btn btn-sm btn-fill btn-success iframe-btn" type="button">Thêm video</a></p>
+								<!-- <input type="text" class="form-control" name="videos" placeholder="https://www.youtube.com/watch?v=5bfUQc8beUw"/> -->
 							</div>
 						</div>
 						<div class="form-group" id="prod_variant">

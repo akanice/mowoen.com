@@ -178,6 +178,7 @@ class Products extends MY_Controller {
 				$this->data['actual_image']	= json_decode(@$this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'actual_image'),array(),true)->value);
 				@$this->data['circleview']			= array_reverse(json_decode(@$this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'circleview'),array(),true)->value));
 				$this->data['video_attach']	= @$this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'video_attach'),array(),true)->value;
+				$this->data['video_attach_thumb']	= 'assets/uploads/'.@$this->productsattachmodel->read(array('product_id'=>$this->data['product_data']->id,'attachdata'=>'video_attach_thumb'),array(),true)->value;
 
 				// Display video youtube
 				if ($this->data['video_attach']) {
@@ -247,7 +248,12 @@ class Products extends MY_Controller {
 	public function product_search() {
 		$this->data['name'] = $this->input->get('name');
         $this->data['category'] = $this->input->get('category');
-		$this->data['total'] = $total = count($this->productsmodel->getSearchProducts('',$this->data['name'],$this->data['category'],"",""));
+		$rs = $this->productsmodel->getSearchProducts('',$this->data['name'],$this->data['category'],"","");
+		if ($rs=='') {
+			$this->data['total'] = $total = 0;
+		} else {
+			$this->data['total'] = $total = count($rs);
+		}
 		$config['suffix'] = '';
 		if($this->data['name'] != "" || $this->data['category'] != ""){
             $config['suffix'] = '?category='.urlencode($this->data['category']).'&name='.urlencode($this->data['name']);

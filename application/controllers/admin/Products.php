@@ -121,6 +121,7 @@ class Products extends MY_Controller{
 			$files = array_values($files);
 			$this->attachData($product_id, 'file_attach', json_encode($files));
 			$this->attachData($product_id, 'video_attach', $this->input->post("videos"));
+			$this->attachData($product_id, 'video_attach_thumb', $this->input->post("videos_thumb"));
 			$this->attachData($product_id, 'actual_image', json_encode($this->input->post("actual_image")));
 			$this->attachData($product_id, 'circleview', json_encode($this->input->post("circleview")));
 			
@@ -208,6 +209,7 @@ class Products extends MY_Controller{
 			$files = array_values($files);
 			$this->attachData($id, 'file_attach', json_encode($files));
 			$this->attachData($id, 'video_attach', $this->input->post("videos"));
+			$this->attachData($id, 'video_attach_thumb', $this->input->post("videos_thumb"));
 			$this->attachData($id, 'actual_image', json_encode($this->input->post("actual_image")));
 			$this->attachData($id, 'circleview', json_encode($this->input->post("circleview")));
 			
@@ -312,6 +314,7 @@ class Products extends MY_Controller{
 		$this->data['p_file_attach'] = @$this->productsattachmodel->read(array('product_id'=>$id,'attachdata'=>'file_attach'),array(),true)->value;
 		$this->data['pricingPackage'] = json_decode($this->data['p_file_attach']);
 		$this->data['p_video_attach'] = @$this->productsattachmodel->read(array('product_id'=>$id,'attachdata'=>'video_attach'),array(),true)->value;
+		$this->data['p_video_attach_thumb'] = @$this->productsattachmodel->read(array('product_id'=>$id,'attachdata'=>'video_attach_thumb'),array(),true)->value;
 		$this->data['actual_image'] = @($this->productsattachmodel->read(array('product_id'=>$id,'attachdata'=>'actual_image'),array(),true)->value);
 		$this->data['circleview'] = @($this->productsattachmodel->read(array('product_id'=>$id,'attachdata'=>'circleview'),array(),true)->value);
 		$this->data['cat_custom_field'] = @json_decode($this->productscategorymodel->read(array('id'=>$cat_id[0]),array(),true)->custom_field);
