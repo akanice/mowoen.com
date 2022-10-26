@@ -1,0 +1,77 @@
+.currentLink {
+	float: left;
+	display: inline-block;
+	background-color: #23CCEF;
+    border: 0;
+    color: #FFFFFF;
+    padding: 7px 13px;
+	display: inline-block;
+	border-radius: 25px;
+}
+
+.paginationLink {
+	float: left;
+	
+}
+.currentLink a, .paginationLink a {
+	background-color: #fff;
+    border: 1px solid #ddd;
+	border-radius: 25px;
+    color: #797979;
+    padding: 7px 13px;
+	display: inline-block;
+	margin: 0 2px;
+	height: 38px;
+}
+.btn-nopadding {
+	padding: 8px 0;
+}
+.package-item {
+	margin-bottom: 5px;
+}
+.color_green {color: #2ecc71}
+.color_blue {color: #2980b9}
+.color_red {color: #e74c3c}
+.color_grey {color: #7f8c8d}
+.checkbox .icons, .radio .icons {
+	z-index: 99;
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.pagination>li {
+    display: inline-block;
+}
+.content .pagination>li.active {
+    position: relative;
+    /* float: left; */
+    vertical-align: top;
+    padding: 6px 12px;
+    line-height: 1.42857143;
+    text-decoration: none;
+    background-color: #f29d31;
+    border: 1px solid #f29d31;
+    border-radius: 50%;
+    margin: 0 2px;
+    color: #f1f1f1;
+}
+.prev_comment_box img{
+	max-width: 100%;
+}
+.rel {position: relative;display: inline-block;margin-right: 8px;}
+.remove {
+	position: absolute;
+    top: -8px;
+    right: -8px;
+    width: 20px;
+    height: 20px;
+    background: #333;
+    color: #fff;
+    border-radius: 99px;
+    /* opacity: 0.8; */
+    text-align: center;
+    cursor: pointer;
+}
